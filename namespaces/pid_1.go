@@ -25,9 +25,9 @@ func main() {
 
 func run() {
 
-  // link to currently running process
+	// link to currently running process
 	// http://unix.stackexchange.com/questions/333225/which-process-is-proc-self-for
-	cmd := exec.Command("/proc/self/exe", append([]string{"child"}, os.Args[2:],...)...) // link to currently running process
+	cmd := exec.Command("/proc/self/exe", append([]string{"child"}, os.Args[2:]...)...) // link to currently running process
 	cmd.Stdin = os.Stdin
 	cmd.Stderr = os.Stderr
 	cmd.Stdout = os.Stdout
@@ -40,7 +40,7 @@ func run() {
 }
 
 func child() {
-	fmt.Printf("running %v as pid%v\n", os.Args[2:], os.Getpid())
+	fmt.Printf("running %v as pid %v\n", os.Args[2:], os.Getpid())
 
 	cmd := exec.Command(os.Args[2], os.Args[3:]...)
 	cmd.Stdin = os.Stdin

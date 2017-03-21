@@ -23,9 +23,9 @@ func main() {
 
 func run() {
 
-  // link to currently running process
+	// link to currently running process
 	// http://unix.stackexchange.com/questions/333225/which-process-is-proc-self-for
-	cmd := exec.Command("/proc/self/exe", append([]string{"child"}, os.Args[2:],...)...) // link to currently running process
+	cmd := exec.Command("/proc/self/exe", append([]string{"child"}, os.Args[2:]...)...) // link to currently running process
 	cmd.Stdin = os.Stdin
 	cmd.Stderr = os.Stderr
 	cmd.Stdout = os.Stdout
@@ -45,11 +45,11 @@ func child() {
 	cmd.Stderr = os.Stderr
 	cmd.Stdout = os.Stdout
 
-  //must(syscall.Chroot("/home/rootfs")) //where to get an extra filesystem
-  //must(os.Chdir("/"))
-  //must(syscall.Mount("proc", "proc", "proc", 0, ""))
+	//must(syscall.Chroot("/home/rootfs")) //where to get an extra filesystem
+	//must(os.Chdir("/"))
+	//must(syscall.Mount("proc", "proc", "proc", 0, ""))
 
-  must(syscall.Mount("rootfs", "rootfs", "", syscall.MS_BIND, ""))
+	must(syscall.Mount("rootfs", "rootfs", "", syscall.MS_BIND, ""))
 	must(os.MkdirAll("rootfs/oldrootfs", 0700))
 	must(syscall.PivotRoot("rootfs", "rootfs/oldrootfs"))
 	must(os.Chdir("/"))
