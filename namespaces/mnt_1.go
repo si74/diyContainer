@@ -47,10 +47,10 @@ func child() {
 	cmd.Stdout = os.Stdout
 
 	// TODO(si74) - Need to add own filesystem
-	// OPTION 1: get root filesystem, change directly path, and mount empty proc
-	// must(syscall.Chroot("/home/rootfs"))
-	// must(os.Chdir("/"))
-	// must(syscall.Mount("proc", "proc", "proc", 0, ""))
+	//OPTION 1: get root filesystem, change directory path, and mount empty proc
+	must(syscall.Chroot("/home/rootfs"))
+	must(os.Chdir("/"))
+	must(syscall.Mount("proc", "proc", "proc", 0, ""))
 
 	// OPTION 2: Mount root file system and pivot to root
 	// must(syscall.Mount("rootfs", "rootfs", "", syscall.MS_BIND, ""))
