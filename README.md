@@ -2,7 +2,7 @@
 
 Containers: What, Why, How?
 
-This repo is the companion to this [talk](https://github.com/si74/diyContainer). 
+This repo is the companion to this [talk](https://github.com/si74/diyContainer).
 
 ## Preparation
 
@@ -96,3 +96,5 @@ source env.sh`
 [Build a Container In Less Than 100 Lines of Go](https://www.infoq.com/articles/build-a-container-golang)
 
 [What is a Container, really?](https://www.youtube.com/watch?v=HPuvDm8IC-4)
+
+[A tutorial for isolating your Namespace](https://www.toptal.com/linux/separation-anxiety-isolating-your-system-with-linux-namespaces)
